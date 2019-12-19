@@ -41,7 +41,7 @@ class Airplane {
 */
 
 class Person {
-  constructor (name, age) {
+  constructor(name, age) {
     this.name = name, 
     this.age = age, 
     this.stomach = []
@@ -76,7 +76,24 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon) {
+    this.model = model, 
+    this.milesPerGallon = milesPerGallon, 
+    this.tank = 0,
+    this.odometer = 0
+  }
+  fill(gallons) {
+    return this.tank += gallons
+  }
+drive(distance){
+  if(this.milesPerGallon*this.tank <= distance){
+    this.odometer =+ this.milesPerGallon*this.tank;
+    this.tank = 0;
+    return 'I ran out of fuel at ${this.odometer} miles!'
+  }
+  this.odometer += distance
+  return this.tank -= distance/this.milesPerGallon
+}
 }
 
 /*
