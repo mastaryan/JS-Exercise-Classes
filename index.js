@@ -76,24 +76,24 @@ class Person {
 */
 
 class Car {
-  constructor(model, milesPerGallon) {
+  constructor(model,milesPerGallon) {
     this.model = model, 
     this.milesPerGallon = milesPerGallon, 
     this.tank = 0,
     this.odometer = 0
   }
-  fill(gallons) {
+  fill(gallons){
     return this.tank += gallons
   }
 drive(distance){
-  if(this.milesPerGallon*this.tank <= distance){
-    this.odometer =+ this.milesPerGallon*this.tank;
-    this.tank = 0;
-    return 'I ran out of fuel at ${this.odometer} miles!'
+    if(this.milesPerGallon*this.tank <= distance){
+      this.odometer += this.milesPerGallon*this.tank;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
+    this.odometer += distance 
+    return this.tank -= distance/this.milesPerGallon
   }
-  this.odometer += distance
-  return this.tank -= distance/this.milesPerGallon
-}
 }
 
 /*
@@ -196,18 +196,18 @@ sprintChallenge(subject){
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager extends Instructor {
-  constructor(attributes) {
+class ProjectManager extends Instructor{
+  constructor(attributes){
     super(attributes);
     this.gradClassName = attributes.gradClassName,
     this.favInstructor = attributes.favInstructor
   }
-standUp(slack-channel) {
-  return `{this.name} announces to ${slack-channel}, @channel standy times!`
-}
-debugsCode(student, subject) {
-  return `${this.name} debugs ${student.name}'s code on ${subject}`
-}
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
+  }
 }
 
 /*
